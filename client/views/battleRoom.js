@@ -84,7 +84,7 @@ battle = {
 				noty({ text: '승리 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'success',});
 			}
 			else {
-				noty({ text: '패배 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'warning',});
+				noty({ text: '패배 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'danger',});
 			}
 
 			Games.update({
@@ -180,8 +180,7 @@ battle = {
 					$set['qa.'+ctrl.RandomWordQ] = {
 						question: ctrl.RandomWordQ,
 						answer: ctrl.RandomWordA,
-						winnerUserId: Meteor.userId(),
-						duration: ''
+						winnerUserId: Meteor.userId()
 					};
 
 					Games.update({
