@@ -15,15 +15,15 @@ m.reactive = function (controller) {
 		return instance;
 	};
 };
-m.autoRedraw = function (target, reactiveFunction) {
-  var tracker = Tracker.autorun(function () {
-    reactiveFunction.bind(target)();
-    m.redraw();
-  });
-  target.onunload = function () {
-    tracker.stop()
-  };
-};
+// m.autoRedraw = function (target, reactiveFunction) {
+//   var tracker = Tracker.autorun(function () {
+//     reactiveFunction.bind(target)();
+//     m.redraw();
+//   });
+//   target.onunload = function () {
+//     tracker.stop()
+//   };
+// };
 
 battle = {
 	controller: m.reactive(function (options) {
@@ -100,6 +100,14 @@ battle = {
 			var count = Words.find().count();
 			var random_index = Math.floor(Math.random() * (count));
 			var random_object = Words.find({}, { skip:random_index, limit:5 }).fetch();
+
+			if(random_object.length < 5) {
+				var random_index = Math.floor(Math.random() * (count));
+				var random_object2 = Words.find({}, { skip:random_index, limit:5-random_object.length }).fetch();
+				for(var idx in random_object2) {
+					random_object.push(random_object2[idx]);
+				}
+			}
 
 			var qa = {};
 			random_object.map(function(wordsItem) {

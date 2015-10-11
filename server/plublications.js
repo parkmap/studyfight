@@ -57,7 +57,7 @@ Notification.allow({
 });
 
 Meteor.startup(function () {
-	if (!Words.findOne({ english: 'a'})) {
+	if (!Words.findOne({ english: 'abdomen'})) {
         Words.insert({ english: 'abdomen', korean: '복부|배|' });
         Words.insert({ english: 'adapt', korean: '…을 적응시키다|순응하다|개작하다|' });
         Words.insert({ english: 'addition', korean: '추가|덧셈|증축|등재|' });
