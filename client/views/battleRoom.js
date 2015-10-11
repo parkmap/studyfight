@@ -133,7 +133,7 @@ battle = {
 				console.log('배틀종료');
 
 				// $('#myModal').modal('show');
-				
+
 
 				history.back();
 				return;
@@ -150,7 +150,7 @@ battle = {
 			});
 		}
 
-		ctrl.keyPress = function () {
+		ctrl.keyPress = function (event) {
 			// if (event.keyCode === 13) {
 				// var isCorrect = false;
 				// for(var key in ctrl.RandomWordA) {
