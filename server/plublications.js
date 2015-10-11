@@ -293,3 +293,19 @@ Meteor.startup(function () {
         Words.insert({ english: 'your', korean: '당신의|너의|여러분의|자네의|' });
 	}
 });
+
+
+
+
+Accounts.onCreateUser(function(options,user) {
+  check(options, Object);
+  check(user, Object);
+
+  options.profile.email = user.services.facebook.email;
+  options.profile.userName = user.services.facebook.id;
+  options.profile.facebookId = user.services.facebook.id;
+
+  user.profile = options.profile;
+
+  return user;
+});
