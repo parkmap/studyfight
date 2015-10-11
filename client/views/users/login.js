@@ -16,8 +16,8 @@ Accounts.ui.config({
     }]
 });
 
-Template._loginButtonsLoggedInDropdown.events({
-    'click #login-buttons-edit-profile': function(event) {
-        // Router.go('profileEdit');
-    }
-});
+// Template._loginButtonsLoggedInDropdown.events({
+//     'click #login-buttons-edit-profile': function(event) {
+//         // Router.go('profileEdit');
+//     }
+// });
