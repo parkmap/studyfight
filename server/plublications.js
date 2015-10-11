@@ -295,9 +295,19 @@ Meteor.startup(function () {
 });
 
 
+if (ServiceConfiguration.configurations.find({service: 'facebook'}).count()===0) {
+  ServiceConfiguration.configurations.insert({
+    service: "facebook",
+    appId: "1478726142433307",
+    secret: "583f4a87cf5d225987d05ba08e857eaa"
+  });
+}
 
 
 Accounts.onCreateUser(function(options,user) {
+  
+  if(user.services.facebook == undefined)return user;
+  
   check(options, Object);
   check(user, Object);
 
