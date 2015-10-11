@@ -15,6 +15,7 @@ m.reactive = function (controller) {
 		return instance;
 	};
 };
+
 // m.autoRedraw = function (target, reactiveFunction) {
 //   var tracker = Tracker.autorun(function () {
 //     reactiveFunction.bind(target)();
@@ -77,11 +78,10 @@ battle = {
 			}
 		};
 
-		// console.log(ctrl.score0, ctrl.score1);
 
 		if(ctrl.score0+ctrl.score1 > 0 && ctrl.RandomWordQ === '') {
 			if(ctrl.score0 > ctrl.score1) {
-				noty({ text: '승리 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'warning',});
+				noty({ text: '승리 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'success',});
 			}
 			else {
 				noty({ text: '패배 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'warning',});
@@ -95,7 +95,6 @@ battle = {
 				}
 			});
 		}
-
 		if(ctrl.RandomWordQ === '') {
 			var count = Words.find().count();
 			var random_index = Math.floor(Math.random() * (count));
@@ -147,8 +146,6 @@ battle = {
 				// alert('배틀이 종료되었습니다.');
 				// console.log('배틀종료');
 
-				// $('#myModal').modal('show');
-
 
 				history.back();
 				return;
@@ -199,7 +196,12 @@ battle = {
 				else {
 					//wrong!!
 					// console.log(event.target.value);
-					alert('wrong answer');
+					// alert('wrong answer');
+
+
+
+					$('#wrongModal').modal('show');
+
 				}
 			// }
 		};
