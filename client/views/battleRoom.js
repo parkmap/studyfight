@@ -179,6 +179,13 @@ battle = {
 				}
 				else {
 					//wrong!!
+
+
+
+					console.log(event.target.value);
+					
+
+
 					alert('wrong answer');
 				}
 			// }
@@ -223,9 +230,9 @@ battle = {
 			]),
 
 			(ctrl.RandomWordE) ?
-				m('ul', [
+				m('div', [
 					ctrl.RandomWordE.map(function (word, index) {
-						return m('li', [
+						return m('div.radio', [
 							m('label#radio'+index, [
 								m('input[type="radio"]', {
 									name: 'answer', value: word, for: 'radio'+index,
