@@ -57,7 +57,7 @@ battle = {
 				ctrl.currentGame[0].qa[key].example.map(function (item) {
 					ctrl.RandomWordE.push(item.korean);
 
-					if(added === false && Math.floor(Math.random() * (3)) <= 1) {
+					if(added === false && Math.floor(Math.random() * 3) < 1) {
 						ctrl.RandomWordE.push(ctrl.RandomWordA);
 						added = true;
 					}
@@ -80,7 +80,6 @@ battle = {
 		// console.log(ctrl.RandomWordE);
 
 		if(ctrl.score0+ctrl.score1 > 0 && ctrl.RandomWordQ === '') {
-			// alert('게임 종료');
 			Games.update({
 				_id: gameId
 			}, {
@@ -130,7 +129,12 @@ battle = {
 					}
 				});
 
-				alert('배틀이 종료되었습니다.');
+				// alert('배틀이 종료되었습니다.');
+				console.log('배틀종료');
+
+				// $('#myModal').modal('show');
+				
+
 				history.back();
 				return;
 			}
@@ -179,13 +183,7 @@ battle = {
 				}
 				else {
 					//wrong!!
-
-
-
-					console.log(event.target.value);
-					
-
-
+					// console.log(event.target.value);
 					alert('wrong answer');
 				}
 			// }
@@ -207,7 +205,7 @@ battle = {
 
 			m('a.btn.btn-danger.pull-right', {
 				onclick: ctrl.leaveBattleRoom.bind(this)
-			}, '나가기'),
+			}, '게임 포기'),
 			// m('hr.clear',''),
 
 			m('h3', [

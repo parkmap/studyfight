@@ -7,6 +7,9 @@ Meteor.publish('words', function () {
 Meteor.publish('games', function () {
 	return Games.find();
 });
+Meteor.publish('results', function () {
+    return Results.find();
+});
 Meteor.publish('notification', function () {
 	return Notification.find();
 });
@@ -35,6 +38,14 @@ Games.allow({
 	update: function (doc) {
 		return true;
 	}
+});
+Results.allow({
+    insert: function (doc) {
+        return true;
+    },
+    update: function (doc) {
+        return true;
+    }
 });
 Notification.allow({
 	insert: function (doc) {

@@ -83,7 +83,9 @@ main = {
 				});
 			}
 			else {
-				alert('로그인하세요.');
+				
+				noty({ text: '배틀신청을 위해 로그인해주세요.', layout: 'center', theme:'relax', killer: true,type: 'warning',}); 
+
 			}
 		};
 
@@ -128,7 +130,7 @@ main = {
 									role: 'group',
 									ariaLabel: 'button',
 								}, (ctrl.UserSendedNotification.length > 0 && ctrl.UserSendedNotification[0].toUserId === user._id) ? [
-										m('span.btn.btn-warning', {}, '배틀 신청중'),
+										m('span.btn.btn-danger', {}, '배틀 신청중'),
 										m('a.btn.btn-danger', {
 											onclick: ctrl.deny.bind(this, ctrl.UserSendedNotification[0]._id)
 										},
