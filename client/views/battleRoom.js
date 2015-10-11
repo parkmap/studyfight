@@ -77,9 +77,16 @@ battle = {
 			}
 		};
 
-		// console.log(ctrl.RandomWordE);
+		// console.log(ctrl.score0, ctrl.score1);
 
 		if(ctrl.score0+ctrl.score1 > 0 && ctrl.RandomWordQ === '') {
+			if(ctrl.score0 > ctrl.score1) {
+				noty({ text: '승리 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'warning',});
+			}
+			else {
+				noty({ text: '패배 ' + ctrl.score0 +':'+ ctrl.score1, layout: 'center', theme:'relax', killer: true,type: 'warning',});
+			}
+
 			Games.update({
 				_id: gameId
 			}, {
@@ -130,7 +137,7 @@ battle = {
 				});
 
 				// alert('배틀이 종료되었습니다.');
-				console.log('배틀종료');
+				// console.log('배틀종료');
 
 				// $('#myModal').modal('show');
 
