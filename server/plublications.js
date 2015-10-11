@@ -295,24 +295,26 @@ Meteor.startup(function () {
 });
 
 
-if (ServiceConfiguration.configurations.find({service: 'facebook'}).count()===0) {
-  ServiceConfiguration.configurations.insert({
-    service: "facebook",
-    appId: "1478726142433307",
-    secret: "583f4a87cf5d225987d05ba08e857eaa"
-  });
-}
+// if (ServiceConfiguration.configurations.find({service: 'facebook'}).count()===0) {
+//   ServiceConfiguration.configurations.insert({
+//     service: "facebook",
+//     appId: "1478726142433307",
+//     secret: "583f4a87cf5d225987d05ba08e857eaa"
+//   });
+// }
 
 
 Accounts.onCreateUser(function(options,user) {
-  
-  if(user.services.facebook == undefined)return user;
-  
+  if(user.services.facebook == undefined) {
+      user.profile = options.profile;
+      return user;
+  }
+
   check(options, Object);
   check(user, Object);
 
   options.profile.email = user.services.facebook.email;
-  options.profile.userName = user.services.facebook.id;
+  options.profile.userName = user.services.facebook.name;
   options.profile.facebookId = user.services.facebook.id;
 
   user.profile = options.profile;
