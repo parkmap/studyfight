@@ -1,3 +1,15 @@
+Template.body.helpers({
+	isNotCurrentUser: function (currentUser){
+		return !currentUser
+	}
+});
+
+Template.body.events({
+	'click #openLogin': function (e, tmpl) {
+		// $('#login-dropdown-list').trigger('click.bs.dropdown');
+	}
+})
+
 m.reactive = function (controller) {
 	return function (options) {
 		var instance = {};
@@ -83,9 +95,7 @@ main = {
 				});
 			}
 			else {
-				
 				noty({ text: '배틀신청을 위해 로그인해주세요.', layout: 'center', theme:'relax', killer: true,type: 'warning',}); 
-
 			}
 		};
 
@@ -124,6 +134,10 @@ main = {
 					if (Meteor.userId() !== user._id) {
 
 						return m('li.list-group-item', [
+
+								// m('span.',{},
+								// 	''
+								// ),
 
 								user.profile.userName,
 								m('div.btn-group.btn-group-xs.pull-right', {
@@ -168,8 +182,6 @@ main = {
 									m('div.modal-header', [
 										m('h4.modal-title', '배틀 신청'),
 									]),
-
-
 
 									m('div.modal-body', [
 										m('p', item.fromUserName + '님이 배틀 신청하셨습니다.'),
