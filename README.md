@@ -5,4 +5,4 @@
 * 실시간 단어 배틀이 가능합니다.
 * Facebook 로그인 기능을 지원합니다. 
 
-###### Credit by Q10 and Parkmap
+###### Created by Q10 and Parkmap
